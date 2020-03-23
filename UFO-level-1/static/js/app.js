@@ -14,19 +14,21 @@ var tbody = d3.select("tbody");
 // });
 
 // Arrow function to loop through data and append date, city, state, country, shape, duration, comments to table
-// data.forEach((ufoSighting) => {
-//     var row = tbody.append("tr");
-//     Object.entries(ufoSighting).forEach(([key, value]) => {
-//       var cell = row.append("td");
-//       cell.text(value);
-//     });
-//   });
+data.forEach((ufoSighting) => {
+    var row = tbody.append("tr");
+    Object.entries(ufoSighting).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
 
 // Getting a reference to the button
 var button = d3.select("#filter-btn");
 
 button.on("click", function() {
 
+    tbody.html("");
+    
     var inputElement = d3.select("#datetime");
 
     var inputValue = inputElement.property("value");
